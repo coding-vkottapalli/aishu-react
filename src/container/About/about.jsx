@@ -2,6 +2,7 @@ import React from "react";
 import { calcLength, motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { images } from "../../constants";
+import { AppWrap } from "../../wrapper";
 import "./about.scss";
 const abouts = [
   {
@@ -28,18 +29,13 @@ const abouts = [
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit eum impedit nulla eos distinctio, laudantium quidem. Aliquam, perferendis doloremque aliquid quo laboriosam exercitationem dolorem suscipit.",
     imgURL: images.about04,
   },
-  {
-    title: "3d Rendering",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit eum impedit nulla eos distinctio, laudantium quidem. Aliquam, perferendis doloremque aliquid quo laboriosam exercitationem dolorem suscipit.",
-    imgURL: images.about04,
-  },
+  ,
 ];
 
 const About = () => {
   return (
     <>
-      <h2 className="head-text">
+      <h2 className="head-text" style={{ marginTop: 22, fontSize: 35 }}>
         <span>"</span>Art is not what you <span>see,</span> <br />
         but what you make others <span>see."</span>
       </h2>
@@ -64,8 +60,22 @@ const About = () => {
           </motion.div>
         ))}
       </div>
+      <div>
+        <div className="">
+          <button>b</button>
+          <h2>Education</h2>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, asperiores!</p>
+        </div>
+        <div>
+          <h2>workExperience</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum natus similique maiores repudiandae aspernatur exercitationem culpa velit
+            corrupti eveniet, eaque, quam, nobis nesciunt expedita dolorem quis dicta. Saepe, est voluptate?
+          </p>
+        </div>
+      </div>
     </>
   );
 };
 
-export default About;
+export default AppWrap(About, "about");
