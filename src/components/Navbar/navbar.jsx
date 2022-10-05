@@ -11,7 +11,10 @@ const Navbar = () => {
   return (
     <nav className="app__navbar">
       <div className="app__navbar-logo">
-        <img src={images.logo} alt="logo" />
+        <a href="home" style={{ textDecoration: "none" }}>
+          {" "}
+          <img src={images.logo} alt="logo" />
+        </a>
       </div>
       <ul className="app__navbar-links">
         {["home", "about", "work", "skills", "contact"].map((item) => (
@@ -36,6 +39,9 @@ const Navbar = () => {
                   </a>
                 </li>
               ))}
+              <li className="download-resume">
+                <a href={images.adidas}>Download-resume</a>
+              </li>
             </ul>
           </motion.div>
         )}

@@ -23,9 +23,10 @@ import about02 from "../assets/about02.png";
 import about03 from "../assets/about03.png";
 import about04 from "../assets/about04.png";
 
-import profile from "../assets/profile3.png";
+// import profile from "../assets/profile3.png";
+import profile from "../assets/home1.JPG";
 import circle from "../assets/circle.svg";
-import logo from "../assets/aish-logo-2.png";
+import logo from "../assets/logo2.jpg";
 
 import adidas from "../assets/adidas.png";
 import amazon from "../assets/amazon.png";
