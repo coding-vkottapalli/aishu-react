@@ -1,6 +1,8 @@
 import React from "react";
 import { calcLength, motion } from "framer-motion";
 import { useState, useEffect } from "react";
+
+import { BiCaretRightCircle, BiCaretDownCircle } from "react-icons/bi";
 import { images } from "../../constants";
 import { AppWrap } from "../../wrapper";
 import "./about.scss";
@@ -29,10 +31,19 @@ const abouts = [
       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit eum impedit nulla eos distinctio, laudantium quidem. Aliquam, perferendis doloremque aliquid quo laboriosam exercitationem dolorem suscipit.",
     imgURL: images.about04,
   },
-  ,
+  {
+    title: "3D Rendering",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit eum impedit nulla eos distinctio, laudantium quidem. Aliquam, perferendis doloremque aliquid quo laboriosam exercitationem dolorem suscipit.",
+    imgURL: images.about04,
+  },
 ];
 
 const About = () => {
+  const [vopacity, setVOpacity] = useState(1);
+  const [activeAccordian1, setActiveAccordian1] = useState(false);
+  const [activeAccordian2, setActiveAccordian2] = useState(false);
+
   return (
     <>
       <h2 className="head-text" style={{ marginTop: 22, fontSize: 35 }}>
@@ -60,18 +71,40 @@ const About = () => {
           </motion.div>
         ))}
       </div>
-      <div>
-        <div className="">
-          <button>b</button>
+      <div className="about__accordian-container">
+        <div className="about__education about-accordian">
+          <button className="about__accordian-btn">
+            <BiCaretRightCircle
+              className="about__accordian-inside-btn"
+              style={{ opacity: vopacity }}
+              onClick={() => {
+                setActiveAccordian1(!activeAccordian1);
+              }}
+            />
+          </button>
+
+          {activeAccordian1 && (
+            <button className="about__accordian-btn">
+              <BiCaretDownCircle className="about__accordian-inside-btn" onClick={() => setActiveAccordian1(!activeAccordian1)} />
+            </button>
+          )}
           <h2>Education</h2>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, asperiores!</p>
+          {activeAccordian1 && <p style={{ background: "rgba(255,255,255,0.2)" }}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, asperiores!</p>}
         </div>
-        <div>
-          <h2>workExperience</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum natus similique maiores repudiandae aspernatur exercitationem culpa velit
-            corrupti eveniet, eaque, quam, nobis nesciunt expedita dolorem quis dicta. Saepe, est voluptate?
-          </p>
+        <div className="about__workexp about-accordian">
+          <button className="about__accordian-btn">
+            {" "}
+            <BiCaretRightCircle className="about__accordian-inside-btn" onClick={() => setActiveAccordian2(!activeAccordian2)} />
+          </button>
+          <h2>Work Experience</h2>
+          {activeAccordian2 && (
+            <ul>
+              <li>2011-2015 : Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, adipisci.</li>
+              <li>2011-2015 : Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, adipisci.</li>
+              <li>2011-2015 : Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, adipisci.</li>
+              <li>2011-2015 : Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, adipisci.</li>
+            </ul>
+          )}
         </div>
       </div>
     </>
