@@ -13,6 +13,24 @@
   border: 1px solid rgba(255, 255, 255, 0.18);
   position: fixed;
   z-index: 2;
+
+  .navbar__resume {
+    a {
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 5px 10px;
+      margin-right: 10px;
+      border-radius: 10px;
+
+      background-color: orange;
+      transition: all 0.5s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
 }
 .app__navbar-logo {
   display: flex;
@@ -20,8 +38,8 @@
   align-items: center;
 
   img {
-    width: 40px;
-    height: 40px;
+    width: 55px;
+    height: 55px;
 
     @media screen and (min-width: 2000px) {
       width: 180px;
@@ -64,8 +82,8 @@
       align-items: center;
 
       img {
-        width: 90px;
-        height: 20px;
+        width: 100px;
+        height: 30px;
 
         @media screen and (min-width: 2000px) {
           width: 180px;
@@ -103,6 +121,7 @@
           flex-direction: column;
 
           text-transform: uppercase;
+
           font-weight: 500;
 
           transition: all 0.3s ease-in-out;

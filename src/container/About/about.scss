@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
 .app__about {
   flex: 1;
   width: 100%;
@@ -37,46 +39,70 @@
     }
   }
 }
-.about__accordian-container {
-  min-width: 100%;
-}
-.about-accordian {
-  padding: 1rem 1rem;
-  background: rgba(255, 255, 255, 0.25);
 
-  border: 1px solid rgba(255, 255, 255, 0.38);
-  margin: 10px 0;
-  position: relative;
+.accordian__container-parent {
+  width: 95%;
+  // border: 2px solid red;
 
-  h2 {
-    margin-bottom: 1rem;
-  }
-
-  ul {
-    li {
-      list-style: none;
-      margin-bottom: 5px;
-    }
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-.about__accordian-btn {
-  padding: 0;
-  border: none;
-  background: none;
-  position: absolute;
-  top: 1.5rem;
-  right: 2rem;
+.accordian__container-item {
+  // padding: 1rem 1rem;
 
-  svg {
-    width: 150%;
-    height: 70%;
-    color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .accordian__heading {
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: rgb(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    transition: all 0.5s;
 
     &:hover {
-      transform: scale(1.5);
-      box-shadow: 0 5px 10px rgba(141, 135, 135, 0.247);
-      border-radius: 1000px;
+      transform: scale(1.01);
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      font-family: "Roboto", sans-serif;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    span {
+      font-size: 1.5rem;
+    }
+  }
+
+  .accordian__content {
+    background-color: rgb(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+    font-size: 1.2rem;
+
+    .accordian__content-text {
+      height: 0;
+      padding: 0 1rem;
+      overflow: hidden;
+      transition: all 0.5s;
+    }
+    .accordian__content-text.accordian__content-active {
+      height: auto;
+      padding: 0.5rem 1rem;
     }
   }
 }

@@ -1,8 +1,7 @@
 import React from "react";
-import { calcLength, motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
-import { BiCaretRightCircle, BiCaretDownCircle } from "react-icons/bi";
 import { images } from "../../constants";
 import { AppWrap } from "../../wrapper";
 import "./about.scss";
@@ -39,11 +38,30 @@ const abouts = [
   },
 ];
 
-const About = () => {
-  const [vopacity, setVOpacity] = useState(1);
-  const [activeAccordian1, setActiveAccordian1] = useState(false);
-  const [activeAccordian2, setActiveAccordian2] = useState(false);
+const accrd = [
+  {
+    title: "Education",
+    content: ["Indira Gandhi National Open University (IGNOU)  • Hyderabad, INDIA  •  2013", "Bachelor of Arts: 3D Animation And Visual Effects"],
+  },
+  {
+    title: "Work Experience",
+    content: [
+      "Elorce Industries - Senior 3D Artist • Hyderabad, INDIA  •  11/2020 - 04/2021",
+      "Amazon - Junior 3D Artist  •  Hyderabad, INDIA  •  07/2018 - 04/2020",
+      "Cyient Ltd - Junior Graphic Technician • Hyderabad, INDIA  •  06/2016 - 06/2018  ",
+    ],
+  },
+];
 
+const About = () => {
+  const [itemSelected, setItemSelected] = useState(null);
+
+  const selectHandler = (item) => {
+    if (itemSelected === item) {
+      return setItemSelected(null);
+    }
+    return setItemSelected(item);
+  };
   return (
     <>
       <h2 className="head-text" style={{ marginTop: 22, fontSize: 35 }}>
@@ -71,41 +89,24 @@ const About = () => {
           </motion.div>
         ))}
       </div>
-      <div className="about__accordian-container">
-        <div className="about__education about-accordian">
-          <button className="about__accordian-btn">
-            <BiCaretRightCircle
-              className="about__accordian-inside-btn"
-              style={{ opacity: vopacity }}
-              onClick={() => {
-                setActiveAccordian1(!activeAccordian1);
-              }}
-            />
-          </button>
 
-          {activeAccordian1 && (
-            <button className="about__accordian-btn">
-              <BiCaretDownCircle className="about__accordian-inside-btn" onClick={() => setActiveAccordian1(!activeAccordian1)} />
-            </button>
-          )}
-          <h2>Education</h2>
-          {activeAccordian1 && <p style={{ background: "rgba(255,255,255,0.2)" }}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, asperiores!</p>}
-        </div>
-        <div className="about__workexp about-accordian">
-          <button className="about__accordian-btn">
-            {" "}
-            <BiCaretRightCircle className="about__accordian-inside-btn" onClick={() => setActiveAccordian2(!activeAccordian2)} />
-          </button>
-          <h2>Work Experience</h2>
-          {activeAccordian2 && (
-            <ul>
-              <li>2011-2015 : Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, adipisci.</li>
-              <li>2011-2015 : Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, adipisci.</li>
-              <li>2011-2015 : Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, adipisci.</li>
-              <li>2011-2015 : Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, adipisci.</li>
-            </ul>
-          )}
-        </div>
+      <div className="accordian__container-parent">
+        {accrd.map((item, i) => (
+          <div key={item + i} className="accordian__container-item">
+            <div className="accordian__heading" onClick={() => selectHandler(i)}>
+              <h2 className="accordian__heading-text">{item.title}</h2>
+              <span className="accordian__heading-expand">{itemSelected === i ? "-" : "+"}</span>
+            </div>
+
+            <div className={`accordian__content`}>
+              {item.content.map((itemContent, ind) => (
+                <p key={ind} className={`accordian__content-text ${itemSelected === i ? "accordian__content-active" : ""}`}>
+                  {itemContent}
+                </p>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </>
   );

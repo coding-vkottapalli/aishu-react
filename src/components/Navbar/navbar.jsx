@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
 import { motion } from "framer-motion";
 
+import pdf from "../../assets/resume/resume.pdf";
+
 import { images } from "../../constants";
 import "./navbar.scss";
 
@@ -18,12 +20,17 @@ const Navbar = () => {
       </div>
       <ul className="app__navbar-links">
         {["home", "about", "work", "skills", "contact"].map((item) => (
-          <li className="app__flex p-text" key={`link-${item}`}>
+          <li className="app__flex " key={`link-${item}`}>
             <div />
             <a href={`#${item}`}>{item}</a>
           </li>
         ))}
       </ul>
+      <div className="app__flex navbar__resume">
+        <a href={pdf} download="Aishwarya-Pearala-resume.pdf">
+          Download my Resume!
+        </a>
+      </div>
 
       <div className="app__navbar-menu">
         <HiMenuAlt4 onClick={() => setToggle(true)} />
@@ -39,9 +46,6 @@ const Navbar = () => {
                   </a>
                 </li>
               ))}
-              <li className="download-resume">
-                <a href={images.adidas}>Download-resume</a>
-              </li>
             </ul>
           </motion.div>
         )}
