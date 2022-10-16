@@ -48,7 +48,7 @@ const Work = () => {
   return (
     <>
       {modalOpen && <WorkModal modalHandler={modalHandler} subImagesArray={subImagesArray} subTagArray={subtagArray} />}
-      <h2 className="head-text">
+      <h2 className="head-text head-text__p">
         My Creative <span>Portfolio</span> Section
       </h2>
 

@@ -1,157 +1,82 @@
+#skills {
+  background-image: url("../../assets/unsplash-about2.jpg");
+  position: relative;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+}
 .app__skills {
-  flex: 1;
-  width: 100%;
+  padding-top: 20px;
+  display: flex;
   flex-direction: column;
 }
 
-.app__skills-container {
-  width: 80%;
-  margin-top: 3rem;
+.skills__container {
+  margin-top: 4rem;
+  padding: 5px;
 
   display: flex;
-  flex-direction: row;
-
-  @media screen and (max-width: 900px) {
-    width: 100%;
-    flex-direction: column;
-  }
-}
-
-.app__skills-list {
-  flex: 1;
-  display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  gap: 50px;
 
-  margin-right: 5rem;
+  .skills__item {
+    width: 300px;
+    padding: 10px;
+    border-radius: 30px;
 
-  @media screen and (max-width: 900px) {
-    margin-right: 0;
-    justify-content: center;
-    align-items: center;
-  }
-}
+    // border: 2px solid red;
 
-.app__skills-item {
-  flex-direction: column;
-  text-align: center;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: 1fr, 1.5fr;
+    gap: 10px;
 
-  margin: 1rem;
+    background: transparent;
+    // backdrop-filter: blur(10px);
+    box-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.2);
 
-  transition: all 0.3s ease-in-out;
+    transition: all 0.3s linear;
 
-  div {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    background-color: #fef4f5;
+    .skills__item-logo {
+      grid-row: 1 / span 4;
+      align-self: center;
 
-    img {
-      width: 50%;
-      height: 50%;
+      img {
+        width: 100%;
+      }
+    }
+    .skills__item-heading {
+      font-size: 0.8rem;
+      padding: 0 15px;
+      align-self: flex-end;
+    }
+    .skills__item-rating {
+      padding: 0 15px;
+      background: linear-gradient(to right, rgba(233, 233, 155, 0.616) 30%, rgba(140, 230, 140, 0.671) 80%, rgba(223, 124, 124, 0.664));
+      // background-color: red;
+
+      height: 10px;
+      border-radius: 10px;
+    }
+
+    .skills__item-description {
+      grid-column: 2 / 3;
+      border-radius: 20px;
+      padding: 5px 15px;
+
+      p {
+        font-size: 1rem;
+      }
     }
 
     &:hover {
-      box-shadow: 0 0 25px #fef4f5;
-    }
-
-    @media screen and (min-width: 2000px) {
-      width: 150px;
-      height: 150px;
-    }
-
-    @media screen and (max-width: 450px) {
-      width: 70px;
-      height: 70px;
+      transform: scale(1.1);
     }
   }
-
-  p {
-    font-weight: 500;
-    margin-top: 0.5rem;
-  }
-
-  @media screen and (min-width: 2000px) {
-    margin: 1rem 2rem;
-
-    p {
-      margin-top: 1rem;
-    }
-  }
-}
-
-.app__skills-exp {
-  flex: 1;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
 
   @media screen and (max-width: 900px) {
-    margin-top: 2rem;
-  }
-}
-
-.app__skills-exp-item {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin: 1rem 0;
-}
-
-.app__skills-exp-works {
-  flex: 1;
-
-  .app__skills-exp-work {
-    display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-bottom: 1rem;
-    cursor: pointer;
-
-    h4 {
-      font-weight: 500;
-    }
-
-    p {
-      font-weight: 400;
-      color: var(--gray-color);
-      margin-top: 5px;
-    }
-  }
-}
-
-.app__skills-exp-year {
-  margin-right: 3rem;
-
-  p {
-    font-weight: 800;
-    color: var(--secondary-color);
-  }
-
-  @media screen and (max-width: 450px) {
-    margin-right: 1rem;
-  }
-}
-
-.skills-tooltip {
-  max-width: 300px !important;
-  background-color: var(--white-color) !important;
-  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1) !important;
-  border-radius: 5px !important;
-  padding: 1rem !important;
-  color: var(--gray-color) !important;
-  text-align: center !important;
-  line-height: 1.5 !important;
-  opacity: 1 !important;
-
-  @media screen and (min-width: 2000px) {
-    font-size: 1.75rem !important;
-    max-width: 500px !important;
-    line-height: 2 !important;
   }
 }
