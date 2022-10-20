@@ -140,13 +140,14 @@
 
     .accordian__content-text {
       height: 0;
-      padding: 0 1rem;
+      opacity: 0;
+      padding: 0.5 1rem;
       overflow: hidden;
-      transition: all 0.5s;
+      transition: all 1s ease-in-out;
     }
-    .accordian__content-text.accordian__content-active {
+    .accordian__content-active {
       height: auto;
-      padding: 0.5rem 1rem;
+      opacity: 1;
     }
   }
 }

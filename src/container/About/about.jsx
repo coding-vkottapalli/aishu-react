@@ -59,11 +59,11 @@ const About = () => {
               </div>
 
               <div className={`accordian__content`}>
-                {item.content.map((itemContent, ind) => (
-                  <p key={ind} className={`accordian__content-text ${itemSelected === i ? "accordian__content-active" : ""}`}>
-                    {itemContent}
-                  </p>
-                ))}
+                <div className={`accordian__content-text ${itemSelected === i ? "accordian__content-active" : ""}`}>
+                  {item.content.map((itemContent, ind) => (
+                    <p key={ind}>{itemContent}</p>
+                  ))}
+                </div>
               </div>
             </div>
           ))}
