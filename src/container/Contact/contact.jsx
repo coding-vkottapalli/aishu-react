@@ -1,7 +1,16 @@
 import React from "react";
+import { IoMdContact } from "react-icons/io";
+
+import { AppWrap, MotionWrap } from "../../wrapper";
+
 import "./contact.scss";
+
 const Contact = () => {
-  return <div>Contact</div>;
+  return (
+    <>
+      <div className="app__contact">Hello</div>
+    </>
+  );
 };
 
-export default Contact;
+export default AppWrap(Contact, "contact", "app__primarybg");

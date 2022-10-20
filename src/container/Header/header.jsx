@@ -39,6 +39,7 @@ const Header = () => {
 
           <div className="tag-cmp app__flex">
             <p className="p-text">3D Artist </p>
+            <p className="p-text">2D Artist </p>
             {/* <p className="p-text">Environmental Artist </p> */}
           </div>
         </div>
@@ -72,7 +73,7 @@ const Header = () => {
       <motion.div variant={scaleVariants} whileInView={scaleVariants.whileInView} className="app__header-circles">
         {[images.tool01, images.tool02, images.tool03, images.tool04, images.tool05, images.tool06].map((circle, index) => {
           return (
-            <div className="circle-cmp app__flex" key={`circle-${index}`}>
+            <div className="circle-cmp app__flex circle-cmp1" key={`circle-${index}`}>
               <img src={circle} alt="profile_bg" />
             </div>
           );
